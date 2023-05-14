@@ -54,10 +54,11 @@ const studentReducer = createSlice({
             }
             newErorr[id] = messErorr;
             state.errors = newErorr;
-        }
+        },
+        
   }
 });
 
-export const {studentInput} = studentReducer.actions
+export const {studentInput,editValues} = studentReducer.actions
 
 export default studentReducer.reducer

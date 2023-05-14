@@ -1,10 +1,22 @@
 import React, { Component } from 'react'
 import CreateStudent from './CreateStudent';
 import {connect} from 'react-redux';
-import infoReducer from '../redux/reducers/infoReducer';
+import {delStudent} from '../redux/reducers/infoReducer';
+import {editStudent} from '../redux/reducers/infoReducer';
  class ReactForm extends Component {
+    delStudent=(idDel)=>{
+       const action = delStudent(idDel)
+       this.props.dispatch(action);
+    };
+    editStudent=(stud)=>{
+       const action = editStudent(stud)
+       this.props.dispatch(action);
+    }
+
   render() {
     let {infoReducer} =this.props;
+    
+
     return (
         <div className='container'>
         <CreateStudent />
@@ -26,12 +38,10 @@ import infoReducer from '../redux/reducers/infoReducer';
                         <td>{prod.email}</td>
                         <td>
                             <button className='btn btn-primary' onClick={()=>{
-                                this.setState({
-                                    productEdit: prod
-                                })
+                                 this.editStudent(prod)
                             }}>Edit</button>
                             <button className='btn btn-danger' onClick={() => {
-                                this.delProduct(prod.idProduct);
+                                this.delStudent(prod.idStudent);
                             }}>Del</button>
                         </td>
                     </tr>
