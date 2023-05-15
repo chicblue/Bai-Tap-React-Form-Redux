@@ -56,6 +56,12 @@ const studentReducer = createSlice({
                                 messErorr = 'Vui Lòng Chỉ Ký Tự'
                             }
                         }break;
+                        case 'email':{
+                            let regEmail = /^\S+@\S+\.\S+$/;
+                            if(!regEmail.test(value)){
+                                messErorr = 'Vui Lòng Nhập Đúng Định Dạng'
+                            }
+                        }
                     }
                 }
             }
