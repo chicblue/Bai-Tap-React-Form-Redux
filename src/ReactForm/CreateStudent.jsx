@@ -2,7 +2,7 @@ import React, { Component } from 'react'
  import {connect} from 'react-redux'
  import{studentInput} from '../redux/reducers/studentReducer'
  import {addStudent} from '../redux/reducers/infoReducer'
- import {editValues}from '../redux/reducers/studentReducer'
+ import {studentUpdate}from '../redux/reducers/infoReducer'
 class CreateStudent extends Component {
    
     handleSubmit = (e)=>{
@@ -27,6 +27,12 @@ class CreateStudent extends Component {
         const action = studentInput({id,value,dataType})
         this.props.dispatch(action);
     }
+
+    updateStudent =(stud)=>{
+        const action = studentUpdate(stud);
+        this.props.dispatch(action);
+    }
+
   render() {
     let student = this.props.studentReducer;
     let {idStudent, phone,name,email} = this.props.studentReducer.values
@@ -67,11 +73,7 @@ class CreateStudent extends Component {
         <div className='card-footer'>
             <button className='btn btn-success' type='submit'>Thêm Sinh Viên</button>
             <button className='btn btn-success ms-2' type='button' onClick={()=>{
-                //Lấy hàm update state từ component cha truyền vào
-                let{updateProduct} = this.props;
-                //Gửi ra dữ liệu sau khi thay đổi product
-                updateProduct({...this.state.values});
-                
+              this.updateStudent(this.props.studentReducer.values);
             }}>Cập Nhật</button>
         </div>
     </form>
