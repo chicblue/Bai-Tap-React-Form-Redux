@@ -3,13 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     arrStudent:[
     ],
-    studentEdit:
-        {
-        idStudent:'',
-        phone:'',
-        name:'',
-        email:''
-        }
+  
 
 
 }
@@ -27,9 +21,7 @@ const infoReducer = createSlice({
                 state.arrStudent.splice(indexDel,1);
             }
         },
-        editStudent:(state,action)=>{
-            state.studentEdit = action.payload
-        }
+      
   }
 });
 

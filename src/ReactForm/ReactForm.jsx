@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CreateStudent from './CreateStudent';
 import {connect} from 'react-redux';
 import {delStudent} from '../redux/reducers/infoReducer';
-import {editStudent} from '../redux/reducers/infoReducer';
+import {editStudent} from '../redux/reducers/studentReducer';
  class ReactForm extends Component {
     delStudent=(idDel)=>{
        const action = delStudent(idDel)

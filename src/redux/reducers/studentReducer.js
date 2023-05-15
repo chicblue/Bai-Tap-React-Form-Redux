@@ -12,6 +12,13 @@ const initialState = {
         phone:' ',
         name:' ',
         email:' '
+    },
+    studentEdit:
+    {
+    idStudent:'',
+    phone:'',
+    name:'',
+    email:''
     }
 
           
@@ -55,10 +62,14 @@ const studentReducer = createSlice({
             newErorr[id] = messErorr;
             state.errors = newErorr;
         },
+        editStudent:(state,action)=>{
+            state.studentEdit = action.payload
+            state.values = state.studentEdit
+        }
         
   }
 });
 
-export const {studentInput,editValues} = studentReducer.actions
+export const {studentInput,editStudent} = studentReducer.actions
 
 export default studentReducer.reducer
